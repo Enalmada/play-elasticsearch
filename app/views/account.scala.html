@@ -1,0 +1,63 @@
+@(currentPage: util.Page[Account], form: Form[(String, String)], currentSortBy: String, currentOrder: String)(implicit request: Request[Any], flash: Flash, messages: Messages)
+
+@import b3.inline.fieldConstructor
+@import views.html.tags._
+
+    @****************************************
+    * Helper generating navigation links    *
+    ****************************************@
+@link(newPage:Int, newSortByOpt:Option[String] = None) = @{
+    val (query, status) = form.get
+    val (sortBy, order) = util.Util.sortByOrder(currentSortBy, currentOrder, newSortByOpt)
+    routes.AccountController.list(newPage, sortBy, order, query, status)
+}
+
+    @**********************************
+    * Helper generating table headers *
+    ***********************************@
+@header(key:String, title:String) = {
+    @_tableHeader(key, title, currentSortBy, currentOrder, link _)
+}
+
+@main("Accounts", "Account") {
+
+    <h1 id="homeTitle">List Accounts</h1>
+
+    @b3.form(link(0)) {
+        @b3.text(form("query"), '_label -> "", 'placeholder -> "Name")
+
+        @b3.select(form("status"),
+            Account.statusOptions,
+            '_label -> "",
+            '_default -> "Status",
+            '_showConstraints -> false)
+
+        @b3.submit('class -> "btn btn-primary"){ Search }
+    }
+
+    @_flash()
+
+    <table class="table goals table-striped table-fixed-header">
+        <thead class="header">
+            <tr>
+                @header("id", "ID")
+                @header("email", "Email")
+                @header("name", "Name")
+                @header("status", "Status")
+            </tr>
+        </thead>
+        <tbody>
+        @for(account <- currentPage.items) {
+            <tr>
+                <td>@account.id</td>
+                <td>@account.email</td>
+                <td>@account.name</td>
+                <td>@account.status</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+
+    @_pagination(currentPage, link)
+
+}

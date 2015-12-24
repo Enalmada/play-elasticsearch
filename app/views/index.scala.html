@@ -1,0 +1,32 @@
+@()(implicit request: Request[Any], flash: Flash, messages: Messages)
+
+@import views.html.tags._
+
+@main("Indexing", "Index") {
+
+    <h1 id="homeTitle">Indexing Actions</h1>
+
+    @_flash()
+
+    <table class="table goals table-striped table-fixed-header">
+        <thead class="header">
+            <tr>
+                <th style="width: 20px;">X</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><a class="btn btn-warning oneClickBttn" href='@routes.Application.fullindex()'><span class="glyphicon glyphicon-refresh "></span></a></td>
+                <td>Full Index</td>
+            </tr>
+            <tr>
+                <td><a class="btn btn-warning oneClickBttn" href='@routes.Application.deltaindex()'><span class="glyphicon glyphicon-refresh "></span></a></td>
+                <td>Delta Index</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+}
