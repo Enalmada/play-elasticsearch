@@ -1,5 +1,7 @@
 # play-elasticsearch [![Build Status](https://travis-ci.org/Enalmada/play-elasticsearch.svg?branch=master)](https://travis-ci.org/Enalmada/play-elasticsearch) [![Join the chat at https://gitter.im/Enalmada/play-elasticsearch](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Enalmada/play-elasticsearch?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.enalmada/play-elasticsearch/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.enalmada/play-elasticsearch)
 
+[![Join the chat at https://gitter.im/Enalmada/play-elasticsearch](https://badges.gitter.im/Enalmada/play-elasticsearch.svg)](https://gitter.im/Enalmada/play-elasticsearch?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Play/Scala HTTP ElasticSearch interface.
 This is initially based on the generic scala elasticsearch http client Wabisabi (https://github.com/gphat/wabisabi) so due credit goes there.  I wanted replace some dependencies unnecessary with play, add sample project, and then build on both from there.  Amazon hosts ElasticSearch but it only supports http interface so this seemed like the best route to go.  
 
