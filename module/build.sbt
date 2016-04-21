@@ -63,7 +63,7 @@ pomExtra in Global := {
     <scm>
       <connection>scm:git:git@github.com:enalmada/play-elasticsearch.git</connection>
       <developerConnection>scm:git:git@github.com:enalmada/play-elasticsearch.git</developerConnection>
-      <url>https://github.com/enalmada</url>
+      <url>https://github.com/enalmada/play-elasticsearch</url>
     </scm>
     <developers>
       <developer>
